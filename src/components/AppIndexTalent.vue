@@ -1,6 +1,22 @@
 <template>
-    <!--  普攻等级 row  -->
+    <!--  角色选择  -->
     <el-row :gutter="20" class="el-main-el-row" style="margin-top: 0px">
+        <el-col :xs="12" :sm="12">
+            <el-cascader
+                :options="options"
+                v-model="value"
+                size="large"
+                :show-all-levels="false"
+                placeholder="选择角色"
+                @change="confirm_role"
+            />
+        </el-col>
+        <el-col :xs="12" :sm="12">
+            {{value}}
+        </el-col>
+    </el-row>
+    <!--  普攻等级 row  -->
+    <el-row :gutter="20" class="el-main-el-row">
         <el-col :xs="24" :sm="12">
             <h2>普攻等级 A</h2>
         </el-col>
@@ -176,18 +192,81 @@
 
 <script>
     import { ref, reactive, toRefs, inject } from 'vue'
-    import { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElNotification, ElMessage  } from 'element-plus'
+    import { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElNotification, ElMessage, ElCascader  } from 'element-plus'
     import { Cpu } from '@element-plus/icons-vue'
     import { talenttotal} from '@/api'
 
     export default {
         name: "AppIndexTalent",
-        components: { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, Cpu},
+        components: { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElCascader, Cpu},
         setup(){
             const reload = inject('reload')
+            const options = [
+                {
+                    value: '火',
+                    label: '火',
+                    children: [
+                        {value: '迪卢克', label: '迪卢克'},
+                        {value: '可莉', label: '可莉'},
+                        {value: '胡桃', label: '胡桃'},
+                        {value: '宵宫', label: '宵宫'},
+                        {value: '香菱', label: '香菱'},
+                        {value: '班尼特', label: '班尼特'},
+                        {value: '安柏', label: '安柏'},
+                        {value: '辛焱', label: '辛焱'},
+                        {value: '烟绯', label: '香菱'},
+                        {value: '托马', label: '托马'}
+                    ]
+                },
+                {
+                    value: '水',
+                    label: '水',
+                    children: [
+
+
+                    ]
+                },
+                {
+                    value: '风',
+                    label: '风',
+                    children: [
+
+
+                    ]
+                },
+                {
+                    value: '雷',
+                    label: '雷',
+                    children: [
+
+                    ]
+                },
+                {
+                    value: '草',
+                    label: '草',
+                    children: [
+
+                    ]
+                },
+                {
+                    value: '冰',
+                    label: '冰',
+                    children: [
+
+                    ]
+                },
+                {
+                    value: '岩',
+                    label: '岩',
+                    children: [
+
+                    ]
+                }
+            ]
             const a_fanwei = ref([1, 1])
             const e_fanwei = ref([1, 1])
             const q_fanwei = ref([1, 1])
+            const value = ref("")
             const marks_a = reactive({
                 1 : {
                     label: "1"
@@ -281,16 +360,21 @@
                     && q_fanwei.value[0] === q_fanwei.value[1];
                 return rule;
             }
+            const confirm_role = (value) =>{
+                console.log(value[1]);
+            }
             return{
+                options,
                 a_fanwei,
                 e_fanwei,
                 q_fanwei,
+                value,
                 marks_a,
                 marks_eq,
                 ...toRefs(needTalentInfo),
-
                 reload,
                 calculate_quantity,
+                confirm_role,
                 submitRule
             }
         }
@@ -329,5 +413,9 @@
     /deep/ .el-dialog{
         text-align: left;
         min-width: 350px;
+    }
+    /deep/ .el-cascader{
+        width: 100%;
+        max-width: 350px;
     }
 </style>

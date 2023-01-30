@@ -21,7 +21,7 @@
         components: {ElCarousel, ElCarouselItem},
         setup(){
             const data = reactive({
-                bg1: "https://oss.foweng.cn/img/home_bg7.png",
+                bg1: "https://oss.foweng.cn/img/home_bg9.png",
                 bg2: "https://oss.foweng.cn/img/home_bg4.png",
                 bg3: "https://oss.foweng.cn/img/home_bg8.png",
             })
