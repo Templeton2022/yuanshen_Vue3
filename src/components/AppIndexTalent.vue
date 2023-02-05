@@ -1,9 +1,9 @@
 <template>
     <!--  角色选择  -->
     <el-row :gutter="20" class="el-main-el-row" style="margin-top: 0px">
-        <el-col :xs="12" :sm="12">
+        <el-col :xs="12" :sm="12" style="line-height: 99px">
             <el-cascader
-                :options="options"
+                :options="role_cascader"
                 v-model="value"
                 size="large"
                 :show-all-levels="false"
@@ -12,7 +12,13 @@
             />
         </el-col>
         <el-col :xs="12" :sm="12">
-            {{value}}
+            <el-avatar
+                shape="square"
+                :size="95"
+                :src="role_img_url"
+                v-show="role_img_control"
+                style="background-color: #ffffff"
+            />
         </el-col>
     </el-row>
     <!--  普攻等级 row  -->
@@ -192,16 +198,16 @@
 
 <script>
     import { ref, reactive, toRefs, inject } from 'vue'
-    import { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElNotification, ElMessage, ElCascader  } from 'element-plus'
+    import { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElNotification, ElMessage, ElCascader, ElAvatar  } from 'element-plus'
     import { Cpu } from '@element-plus/icons-vue'
     import { talenttotal} from '@/api'
 
     export default {
         name: "AppIndexTalent",
-        components: { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElCascader, Cpu},
+        components: { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElCascader, ElAvatar, Cpu},
         setup(){
             const reload = inject('reload')
-            const options = [
+            const role_cascader = [
                 {
                     value: '火',
                     label: '火',
@@ -222,66 +228,114 @@
                     value: '水',
                     label: '水',
                     children: [
-
-
+                        {value: '妮露', label: '妮露'},
+                        {value: '夜兰', label: '夜兰'},
+                        {value: '神里绫人', label: '神里绫人'},
+                        {value: '珊瑚宫心海', label: '珊瑚宫心海'},
+                        {value: '达达利亚', label: '达达利亚'},
+                        {value: '莫娜', label: '莫娜'},
+                        {value: '坎蒂丝', label: '坎蒂丝'},
+                        {value: '芭芭拉', label: '芭芭拉'},
+                        {value: '行秋', label: '行秋'},
                     ]
                 },
                 {
                     value: '风',
                     label: '风',
                     children: [
-
-
+                        {value: '流浪者', label: '流浪者'},
+                        {value: '枫原万叶', label: '枫原万叶'},
+                        {value: '魈', label: '魈'},
+                        {value: '温迪', label: '温迪'},
+                        {value: '琴', label: '琴'},
+                        {value: '珐露珊', label: '珐露珊'},
+                        {value: '鹿野院平藏', label: '鹿野院平藏'},
+                        {value: '早柚', label: '早柚'},
+                        {value: '砂糖', label: '砂糖'},
                     ]
                 },
                 {
                     value: '雷',
                     label: '雷',
                     children: [
-
+                        {value: '赛诺', label: '赛诺'},
+                        {value: '八重神子', label: '八重神子'},
+                        {value: '雷电将军', label: '雷电将军'},
+                        {value: '刻晴', label: '刻晴'},
+                        {value: '多莉', label: '多莉'},
+                        {value: '久岐忍', label: '久岐忍'},
+                        {value: '九条裟罗', label: '九条裟罗'},
+                        {value: '北斗', label: '北斗'},
+                        {value: '雷泽', label: '雷泽'},
+                        {value: '菲谢尔', label: '菲谢尔'},
+                        {value: '丽莎', label: '丽莎'},
                     ]
                 },
                 {
                     value: '草',
                     label: '草',
                     children: [
-
+                        {value: '艾尔海森', label: '艾尔海森'},
+                        {value: '纳西妲', label: '纳西妲'},
+                        {value: '提纳里', label: '提纳里'},
+                        {value: '瑶瑶', label: '瑶瑶'},
+                        {value: '柯莱', label: '柯莱'},
                     ]
                 },
                 {
                     value: '冰',
                     label: '冰',
                     children: [
-
+                        {value: '申鹤', label: '申鹤'},
+                        {value: '神里绫华', label: '神里绫华'},
+                        {value: '优菈', label: '优菈'},
+                        {value: '甘雨', label: '甘雨'},
+                        {value: '七七', label: '七七'},
+                        {value: '莱依拉', label: '莱依拉'},
+                        {value: '埃洛伊', label: '埃洛伊'},
+                        {value: '罗莎莉亚', label: '罗莎莉亚'},
+                        {value: '迪奥娜', label: '迪奥娜'},
+                        {value: '凯亚', label: '凯亚'},
+                        {value: '重云', label: '重云'},
                     ]
                 },
                 {
                     value: '岩',
                     label: '岩',
                     children: [
-
+                        {value: '荒泷一斗', label: '荒泷一斗'},
+                        {value: '阿贝多', label: '阿贝多'},
+                        {value: '钟离', label: '钟离'},
+                        {value: '云堇', label: '云堇'},
+                        {value: '五郎', label: '五郎'},
+                        {value: '诺艾尔', label: '诺艾尔'},
+                        {value: '凝光', label: '凝光'},
                     ]
                 }
             ]
+            const roleimg = reactive({
+                role_img_control: false,
+                role_img_url: ""
+            })
             const a_fanwei = ref([1, 1])
             const e_fanwei = ref([1, 1])
             const q_fanwei = ref([1, 1])
             const value = ref("")
             const marks_a = reactive({
                 1 : {
-                    label: "1"
+                    label: "lv.1"
                 },
                 6 : '试试滑动两端滑块',
                 10 :{
-                    label: "10"
+                    label: "lv.10"
                 }
             })
             const marks_eq = reactive({
                 1 : {
-                    label: "1"
+                    label: "lv.1"
                 },
                 10 :{
-                    label: "10"
+                    label: "lv.10"
                 }
             })
             let needTalentInfo = reactive({
@@ -361,10 +415,12 @@
                 return rule;
             }
             const confirm_role = (value) =>{
-                console.log(value[1]);
+                let rolename = value[1];
+                roleimg.role_img_control = true;
+                roleimg.role_img_url = "https://oss.foweng.cn/role_img/90px-" + rolename + "头像.png";
             }
             return{
-                options,
+                role_cascader,
                 a_fanwei,
                 e_fanwei,
                 q_fanwei,
@@ -372,6 +428,7 @@
                 marks_a,
                 marks_eq,
                 ...toRefs(needTalentInfo),
+                ...toRefs(roleimg),
                 reload,
                 calculate_quantity,
                 confirm_role,

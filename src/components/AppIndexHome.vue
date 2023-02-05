@@ -9,6 +9,9 @@
         <el-carousel-item>
             <img :src=bg3>
         </el-carousel-item>
+        <el-carousel-item>
+            <img :src=bg4>
+        </el-carousel-item>
     </el-carousel>
 </template>
 
@@ -21,9 +24,10 @@
         components: {ElCarousel, ElCarouselItem},
         setup(){
             const data = reactive({
-                bg1: "https://oss.foweng.cn/img/home_bg9.png",
-                bg2: "https://oss.foweng.cn/img/home_bg4.png",
-                bg3: "https://oss.foweng.cn/img/home_bg8.png",
+                bg1: "https://oss.foweng.cn/home_bg/bg1.png",
+                bg2: "https://oss.foweng.cn/home_bg/bg2.png",
+                bg3: "https://oss.foweng.cn/home_bg/bg3.png",
+                bg4: "https://oss.foweng.cn/home_bg/bg4.png"
             })
             const autoHeight = computed(() =>{
                 // 获取页面宽度
