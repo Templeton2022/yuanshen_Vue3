@@ -89,7 +89,7 @@
     </div>
 
     <!--  所需材料显示    -->
-    <el-row :gutter="20">
+    <el-row :gutter="20" v-show="talent_material_control">
         <el-col :xs="24" :sm="8" style="margin-top: 20px">
             <el-card class="box-card" shadow="hover">
                 <template #header>
@@ -99,26 +99,47 @@
                 </template>
                 <el-row>
                     <el-col :xs="12" :sm="12">
-                        <img src="../assets/img/talent/90px-「抗争」的教导.png">
+                        <el-avatar
+                                shape="square"
+                                :size="70"
+                                :src="green_talentbook_url"
+                                style="background-color: #ffffff"
+                        />
                     </el-col>
-                    <el-col :xs="12" :sm="12" style="line-height: 97px">
-                        绿色天赋书： {{green_talentbook}}
+                    <el-col :xs="12" :sm="12" style="padding-top: 5px">
+                        {{green_talentbook_name}}：<br>
+                        <br>
+                        {{green_talentbook}}
                     </el-col>
                 </el-row>
                 <el-row>
                     <el-col :xs="12" :sm="12">
-                        <img src="../assets/img/talent/90px-「抗争」的指引.png">
+                        <el-avatar
+                                shape="square"
+                                :size="70"
+                                :src="blue_talentbook_url"
+                                style="background-color: #ffffff"
+                        />
                     </el-col>
-                    <el-col :xs="12" :sm="12" style="line-height: 97px">
-                        蓝色天赋书： {{blue_talentbook}}
+                    <el-col :xs="12" :sm="12" style="padding-top: 5px">
+                        {{blue_talentbook_name}}：<br>
+                        <br>
+                        {{blue_talentbook}}
                     </el-col>
                 </el-row>
                 <el-row>
                     <el-col :xs="12" :sm="12">
-                        <img src="../assets/img/talent/90px-「抗争」的哲学.png">
+                        <el-avatar
+                                shape="square"
+                                :size="70"
+                                :src="purple_talentbook_url"
+                                style="background-color: #ffffff"
+                        />
                     </el-col>
-                    <el-col :xs="12" :sm="12" style="line-height: 97px">
-                        紫色天赋书： {{purple_talentbook}}
+                    <el-col :xs="12" :sm="12" style="padding-top: 5px">
+                        {{purple_talentbook_name}}：<br>
+                        <br>
+                        {{purple_talentbook}}
                     </el-col>
                 </el-row>
             </el-card>
@@ -127,31 +148,46 @@
             <el-card class="box-card" shadow="hover">
                 <template #header>
                     <div class="card-header">
-                        <h2>怪物掉落物</h2>
+                        <h2>怪物材料</h2>
                     </div>
                 </template>
                 <el-row>
                     <el-col :xs="12" :sm="12">
-                        <img src="../assets/img/talent/90px-破损的面具.png">
+                        <el-avatar
+                                shape="square"
+                                :size="70"
+                                :src="grey_monsterdrop_url"
+                                style="background-color: #ffffff"
+                        />
                     </el-col>
-                    <el-col :xs="12" :sm="12" style="line-height: 97px">
-                        灰色掉落物： {{grey_monsterdrop}}
-                    </el-col>
-                </el-row>
-                <el-row>
-                    <el-col :xs="12" :sm="12">
-                        <img src="../assets/img/talent/90px-污秽的面具.png">
-                    </el-col>
-                    <el-col :xs="12" :sm="12" style="line-height: 97px">
-                        绿色掉落物： {{green_monsterdrop}}
+                    <el-col :xs="12" :sm="12" style="line-height: 70px">
+                        {{grey_monsterdrop_name}}： {{grey_monsterdrop}}
                     </el-col>
                 </el-row>
                 <el-row>
                     <el-col :xs="12" :sm="12">
-                        <img src="../assets/img/talent/90px-不祥的面具.png">
+                        <el-avatar
+                                shape="square"
+                                :size="70"
+                                :src="green_monsterdrop_url"
+                                style="background-color: #ffffff"
+                        />
                     </el-col>
-                    <el-col :xs="12" :sm="12" style="line-height: 97px">
-                        蓝色掉落物： {{blue_monsterdrop}}
+                    <el-col :xs="12" :sm="12" style="line-height: 70px">
+                        {{green_monsterdrop_name}}： {{green_monsterdrop}}
+                    </el-col>
+                </el-row>
+                <el-row>
+                    <el-col :xs="12" :sm="12">
+                        <el-avatar
+                                shape="square"
+                                :size="70"
+                                :src="blue_monsterdrop_url"
+                                style="background-color: #ffffff"
+                        />
+                    </el-col>
+                    <el-col :xs="12" :sm="12" style="line-height: 70px">
+                        {{blue_monsterdrop_name}}： {{blue_monsterdrop}}
                     </el-col>
                 </el-row>
             </el-card>
@@ -165,25 +201,40 @@
                 </template>
                 <el-row>
                     <el-col :xs="12" :sm="12">
-                        <img src="../assets/img/talent/90px-东风之翎.png">
+                        <el-avatar
+                                shape="square"
+                                :size="70"
+                                :src="week_drop_url"
+                                style="background-color: #ffffff"
+                        />
                     </el-col>
-                    <el-col :xs="12" :sm="12" style="line-height: 97px">
-                        周本材料： {{week_drop}}
+                    <el-col :xs="12" :sm="12" style="line-height: 70px">
+                        {{week_drop_name}}： {{week_drop}}
                     </el-col>
                 </el-row>
                 <el-row>
                     <el-col :xs="12" :sm="12">
-                        <img src="../assets/img/talent/90px-智识之冕.png">
+                        <el-avatar
+                                shape="square"
+                                :size="70"
+                                :src="crown_url"
+                                style="background-color: #ffffff"
+                        />
                     </el-col>
-                    <el-col :xs="12" :sm="12" style="line-height: 97px">
+                    <el-col :xs="12" :sm="12" style="line-height: 70px">
                         智识之冕： {{crown}}
                     </el-col>
                 </el-row>
                 <el-row>
                     <el-col :xs="12" :sm="12">
-                        <img src="../assets/img/talent/90px-摩拉.png">
+                        <el-avatar
+                                shape="square"
+                                :size="70"
+                                :src="mora_url"
+                                style="background-color: #ffffff"
+                        />
                     </el-col>
-                    <el-col :xs="12" :sm="12" style="padding-top: 15px">
+                    <el-col :xs="12" :sm="12" style="padding-top: 5px">
                         摩拉数量:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
                         &nbsp;<br>
                         {{mora}}
@@ -200,7 +251,7 @@
     import { ref, reactive, toRefs, inject } from 'vue'
     import { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElNotification, ElMessage, ElCascader, ElAvatar  } from 'element-plus'
     import { Cpu } from '@element-plus/icons-vue'
-    import { talenttotal} from '@/api'
+    import { talenttotal, talentmaterial} from '@/api'
 
     export default {
         name: "AppIndexTalent",
@@ -220,7 +271,7 @@
                         {value: '班尼特', label: '班尼特'},
                         {value: '安柏', label: '安柏'},
                         {value: '辛焱', label: '辛焱'},
-                        {value: '烟绯', label: '香菱'},
+                        {value: '烟绯', label: '烟绯'},
                         {value: '托马', label: '托马'}
                     ]
                 },
@@ -317,6 +368,30 @@
                 role_img_control: false,
                 role_img_url: ""
             })
+            const talent_material_img = reactive({
+                talent_material_control: false,
+                green_talentbook_url: "",
+                blue_talentbook_url: "",
+                purple_talentbook_url: "",
+
+                grey_monsterdrop_url: "",
+                green_monsterdrop_url: "",
+                blue_monsterdrop_url: "",
+
+                week_drop_url: "",
+                crown_url: "https://oss.foweng.cn/talent_material_img/70px-智识之冕.png",
+                mora_url: "https://oss.foweng.cn/talent_material_img/70px-摩拉.png",
+
+                green_talentbook_name: "",
+                blue_talentbook_name: "",
+                purple_talentbook_name: "",
+
+                grey_monsterdrop_name: "",
+                green_monsterdrop_name: "",
+                blue_monsterdrop_name: "",
+
+                week_drop_name: "",
+            })
             const a_fanwei = ref([1, 1])
             const e_fanwei = ref([1, 1])
             const q_fanwei = ref([1, 1])
@@ -350,6 +425,17 @@
                 mora: "-"
             })
             const calculate_quantity = () =>{
+                // 未选择角色
+                if (roleimg.role_img_control === false){
+                    // 消息提示
+                    ElNotification({
+                        title: '未选角色',
+                        message: '您未选择计算天赋材料的角色！',
+                        type: 'warning',
+                        duration: 3000
+                    })
+                    return;
+                }
                 if (submitRule()){
                     // 消息提示
                     ElNotification({
@@ -359,7 +445,7 @@
                         duration: 3000
                     })
                     // 刷新页面
-                    reload()
+                    // reload()
                 } else {
                     const talentDTO = {
                         a_start: a_fanwei.value[0],
@@ -416,9 +502,82 @@
             }
             const confirm_role = (value) =>{
                 let rolename = value[1];
-                roleimg.role_img_control = true;
                 roleimg.role_img_url = "https://oss.foweng.cn/role_img/90px-" + rolename + "头像.png";
+                roleimg.role_img_control = true;
+
+                // 重置天赋技能等级
+                a_fanwei.value[0] = 1;
+                a_fanwei.value[1] = 1;
+                e_fanwei.value[0] = 1;
+                e_fanwei.value[1] = 1;
+                q_fanwei.value[0] = 1;
+                q_fanwei.value[1] = 1;
+
+                // 重置材料数量
+                needTalentInfo.green_talentbook = "-";
+                needTalentInfo.blue_talentbook = "-";
+                needTalentInfo.purple_talentbook = "-";
+                needTalentInfo.grey_monsterdrop = "-";
+                needTalentInfo.green_monsterdrop = "-";
+                needTalentInfo.blue_monsterdrop = "-";
+                needTalentInfo.week_drop = "-";
+                needTalentInfo.crown = "-";
+                needTalentInfo.mora = "-";
+
+                // 查询角色天赋所需材料请求
+                const talentmaterialDTO = {
+                    role_name: rolename
+                }
+                talentmaterial(talentmaterialDTO).then((res) =>{
+                    if (res.data.code === 200){
+                        let data = res.data.data;
+
+                        // 替换图像显示
+                        talent_material_img.green_talentbook_url
+                            = "https://oss.foweng.cn/talent_book_img/70px-" + data.green_talentbook + ".png";
+                        talent_material_img.blue_talentbook_url
+                            = "https://oss.foweng.cn/talent_book_img/70px-" + data.blue_talentbook + ".png";
+                        talent_material_img.purple_talentbook_url
+                            = "https://oss.foweng.cn/talent_book_img/70px-" + data.purple_talentbook + ".png";
+                        talent_material_img.grey_monsterdrop_url
+                            = "https://oss.foweng.cn/monsterdrop_img/70px-" + data.grey_monsterdrop + ".png";
+                        talent_material_img.green_monsterdrop_url
+                            = "https://oss.foweng.cn/monsterdrop_img/70px-" + data.green_monsterdrop + ".png";
+                        talent_material_img.blue_monsterdrop_url
+                            = "https://oss.foweng.cn/monsterdrop_img/70px-" + data.blue_monsterdrop + ".png";
+                        talent_material_img.week_drop_url
+                            = "https://oss.foweng.cn/talent_material_img/70px-" + data.week_drop + ".png";
+
+                        // 替换文字显示
+                        talent_material_img.green_talentbook_name = data.green_talentbook;
+                        talent_material_img.blue_talentbook_name = data.blue_talentbook;
+                        talent_material_img.purple_talentbook_name = data.purple_talentbook;
+
+                        talent_material_img.grey_monsterdrop_name = data.grey_monsterdrop;
+                        talent_material_img.green_monsterdrop_name = data.green_monsterdrop;
+                        talent_material_img.blue_monsterdrop_name = data.blue_monsterdrop;
+
+                        talent_material_img.week_drop_name = data.week_drop;
+                    }
+                    else {
+                        ElNotification({
+                            title: 'Error',
+                            message: res.data.message,
+                            type: 'error',
+                        })
+                    }
+                })
+                .catch((failres) =>{
+                    console.log(failres.data)
+                    ElNotification({
+                        title: 'Error',
+                        message: '请求失败，请联系管理员！',
+                        type: 'error',
+                    })
+                })
+                talent_material_img.talent_material_control = true;
             }
+
             return{
                 role_cascader,
                 a_fanwei,
@@ -429,6 +588,7 @@
                 marks_eq,
                 ...toRefs(needTalentInfo),
                 ...toRefs(roleimg),
+                ...toRefs(talent_material_img),
                 reload,
                 calculate_quantity,
                 confirm_role,

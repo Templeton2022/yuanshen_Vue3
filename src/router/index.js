@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router"
+import { createRouter, createWebHashHistory } from "vue-router"
 import AppIndex from "@/pages/AppIndex";
 
 const routes = [
@@ -27,8 +27,8 @@ const routes = [
     }
 ]
 export const router = createRouter({
-    history: createWebHistory("/yuanshen"),
-    // history: createWebHashHistory(),
+    // history: createWebHistory("/yuanshen"),
+    history: createWebHashHistory(),
     routes: routes,
 
 })
