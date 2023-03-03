@@ -27,16 +27,35 @@
             <h2>普攻等级 A</h2>
         </el-col>
         <el-col :xs="24" :sm="12">
-            <div class="block">
-                <el-slider
-                        v-model="a_fanwei"
-                        range
-                        show-stops
-                        :min="1"
-                        :max="10"
-                        :marks="marks_a">
-                </el-slider>
-            </div>
+            <el-row>
+                <el-col :span="2">
+                    <el-button
+                            @click="a_minus"
+                            circle>
+                        <el-icon><Minus /></el-icon>
+                    </el-button>
+                </el-col>
+                <el-col :span="20">
+                    <div class="block">
+                        <el-slider
+                                v-model="a_fanwei"
+                                range
+                                show-stops
+                                :min="1"
+                                :max="10"
+                                :marks="marks_a"
+                        >
+                        </el-slider>
+                    </div>
+                </el-col>
+                <el-col :span="2">
+                    <el-button
+                            @click="a_plus"
+                            circle>
+                        <el-icon><Plus /></el-icon>
+                    </el-button>
+                </el-col>
+            </el-row>
         </el-col>
     </el-row>
     <!--  元素战技等级 row  -->
@@ -45,16 +64,34 @@
             <h2>技能战技 E</h2>
         </el-col>
         <el-col :xs="24" :sm="12">
-            <div class="block">
-                <el-slider
-                        v-model="e_fanwei"
-                        range
-                        show-stops
-                        :min="1"
-                        :max="10"
-                        :marks="marks_eq">
-                </el-slider>
-            </div>
+            <el-row>
+                <el-col :span="2">
+                    <el-button
+                            @click="e_minus"
+                            circle>
+                        <el-icon><Minus /></el-icon>
+                    </el-button>
+                </el-col>
+                <el-col :span="20">
+                    <div class="block">
+                        <el-slider
+                                v-model="e_fanwei"
+                                range
+                                show-stops
+                                :min="1"
+                                :max="10"
+                                :marks="marks_eq">
+                        </el-slider>
+                    </div>
+                </el-col>
+                <el-col :span="2">
+                    <el-button
+                            @click="e_plus"
+                            circle>
+                        <el-icon><Plus /></el-icon>
+                    </el-button>
+                </el-col>
+            </el-row>
         </el-col>
     </el-row>
     <!--  元素爆发等级 row  -->
@@ -63,16 +100,34 @@
             <h2>技能爆发 Q</h2>
         </el-col>
         <el-col :xs="24" :sm="12">
-            <div class="block">
-                <el-slider
-                        v-model="q_fanwei"
-                        range
-                        show-stops
-                        :min="1"
-                        :max="10"
-                        :marks="marks_eq">
-                </el-slider>
-            </div>
+            <el-row>
+                <el-col :span="2">
+                    <el-button
+                            @click="q_minus"
+                            circle>
+                        <el-icon><Minus /></el-icon>
+                    </el-button>
+                </el-col>
+                <el-col :span="20">
+                    <div class="block">
+                        <el-slider
+                                v-model="q_fanwei"
+                                range
+                                show-stops
+                                :min="1"
+                                :max="10"
+                                :marks="marks_eq">
+                        </el-slider>
+                    </div>
+                </el-col>
+                <el-col :span="2">
+                    <el-button
+                            @click="q_plus"
+                            circle>
+                        <el-icon><Plus /></el-icon>
+                    </el-button>
+                </el-col>
+            </el-row>
         </el-col>
     </el-row>
 
@@ -250,12 +305,12 @@
 <script>
     import { ref, reactive, toRefs, inject } from 'vue'
     import { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElNotification, ElMessage, ElCascader, ElAvatar  } from 'element-plus'
-    import { Cpu } from '@element-plus/icons-vue'
+    import { Cpu, Minus, Plus } from '@element-plus/icons-vue'
     import { talenttotal, talentmaterial} from '@/api'
 
     export default {
         name: "AppIndexTalent",
-        components: { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElCascader, ElAvatar, Cpu},
+        components: { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElCascader, ElAvatar, Cpu, Minus, Plus},
         setup(){
             const reload = inject('reload')
             const role_cascader = [
@@ -578,6 +633,49 @@
                 talent_material_img.talent_material_control = true;
             }
 
+            const a_minus = () =>{
+                if (a_fanwei.value[1] <= 1){
+                    a_fanwei.value[1] = 1;
+                }else {
+                    a_fanwei.value[1]--;
+                }
+            }
+            const a_plus = () =>{
+                if (a_fanwei.value[1] >= 10){
+                    a_fanwei.value[1] = 10;
+                }else {
+                    a_fanwei.value[1]++;
+                }
+            }
+            const e_minus = () =>{
+                if (e_fanwei.value[1] <= 1){
+                    e_fanwei.value[1] = 1;
+                }else {
+                    e_fanwei.value[1]--;
+                }
+            }
+            const e_plus = () =>{
+                if (e_fanwei.value[1] >= 10){
+                    e_fanwei.value[1] = 10;
+                }else {
+                    e_fanwei.value[1]++;
+                }
+            }
+            const q_minus = () =>{
+                if (q_fanwei.value[1] <= 1){
+                    q_fanwei.value[1] = 1;
+                }else {
+                    q_fanwei.value[1]--;
+                }
+            }
+            const q_plus = () =>{
+                if (q_fanwei.value[1] >= 10){
+                    q_fanwei.value[1] = 10;
+                }else {
+                    q_fanwei.value[1]++;
+                }
+            }
+
             return{
                 role_cascader,
                 a_fanwei,
@@ -592,7 +690,13 @@
                 reload,
                 calculate_quantity,
                 confirm_role,
-                submitRule
+                submitRule,
+                a_minus,
+                a_plus,
+                e_minus,
+                e_plus,
+                q_minus,
+                q_plus,
             }
         }
     }

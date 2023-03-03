@@ -3,14 +3,17 @@
         <el-carousel-item>
             <img :src=bg1>
         </el-carousel-item>
+
         <el-carousel-item>
-            <img :src=bg2>
+            <img :src=bg2 style="margin-top: 25px">
         </el-carousel-item>
+
         <el-carousel-item>
-            <img :src=bg3>
+            <img :src=bg3 style="margin-top: 25px">
         </el-carousel-item>
+
         <el-carousel-item>
-            <img :src=bg4>
+            <img :src=bg4 style="margin-top: 25px">
         </el-carousel-item>
     </el-carousel>
 </template>
@@ -27,7 +30,7 @@
                 bg1: "https://oss.foweng.cn/home_bg/bg1.png",
                 bg2: "https://oss.foweng.cn/home_bg/bg2.png",
                 bg3: "https://oss.foweng.cn/home_bg/bg3.png",
-                bg4: "https://oss.foweng.cn/home_bg/bg4.png"
+                bg4: "https://oss.foweng.cn/home_bg/bg4.png",
             })
             const autoHeight = computed(() =>{
                 // 获取页面宽度
