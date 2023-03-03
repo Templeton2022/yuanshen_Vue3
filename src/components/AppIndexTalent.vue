@@ -28,14 +28,14 @@
         </el-col>
         <el-col :xs="24" :sm="12">
             <el-row>
-                <el-col :span="2">
+                <el-col :span="2" style="margin: 0px">
                     <el-button
                             @click="a_minus"
                             circle>
                         <el-icon><Minus /></el-icon>
                     </el-button>
                 </el-col>
-                <el-col :span="20">
+                <el-col :span="20" style="margin: 0px">
                     <div class="block">
                         <el-slider
                                 v-model="a_fanwei"
@@ -48,7 +48,7 @@
                         </el-slider>
                     </div>
                 </el-col>
-                <el-col :span="2">
+                <el-col :span="2" style="margin: 0px">
                     <el-button
                             @click="a_plus"
                             circle>
@@ -65,14 +65,14 @@
         </el-col>
         <el-col :xs="24" :sm="12">
             <el-row>
-                <el-col :span="2">
+                <el-col :span="2" style="margin: 0px">
                     <el-button
                             @click="e_minus"
                             circle>
                         <el-icon><Minus /></el-icon>
                     </el-button>
                 </el-col>
-                <el-col :span="20">
+                <el-col :span="20" style="margin: 0px">
                     <div class="block">
                         <el-slider
                                 v-model="e_fanwei"
@@ -84,7 +84,7 @@
                         </el-slider>
                     </div>
                 </el-col>
-                <el-col :span="2">
+                <el-col :span="2" style="margin: 0px">
                     <el-button
                             @click="e_plus"
                             circle>
@@ -101,33 +101,33 @@
         </el-col>
         <el-col :xs="24" :sm="12">
             <el-row>
-                <el-col :span="2">
-                    <el-button
-                            @click="q_minus"
-                            circle>
-                        <el-icon><Minus /></el-icon>
-                    </el-button>
-                </el-col>
-                <el-col :span="20">
-                    <div class="block">
-                        <el-slider
-                                v-model="q_fanwei"
-                                range
-                                show-stops
-                                :min="1"
-                                :max="10"
-                                :marks="marks_eq">
-                        </el-slider>
-                    </div>
-                </el-col>
-                <el-col :span="2">
-                    <el-button
-                            @click="q_plus"
-                            circle>
-                        <el-icon><Plus /></el-icon>
-                    </el-button>
-                </el-col>
-            </el-row>
+                    <el-col :span="2" style="margin: 0px">
+                        <el-button
+                                @click="q_minus"
+                                circle>
+                            <el-icon><Minus /></el-icon>
+                        </el-button>
+                    </el-col>
+                    <el-col :span="20" style="margin: 0px">
+                        <div class="block">
+                            <el-slider
+                                    v-model="q_fanwei"
+                                    range
+                                    show-stops
+                                    :min="1"
+                                    :max="10"
+                                    :marks="marks_eq">
+                            </el-slider>
+                        </div>
+                    </el-col>
+                    <el-col :span="2" style="margin: 0px">
+                        <el-button
+                                @click="q_plus"
+                                circle>
+                            <el-icon><Plus /></el-icon>
+                        </el-button>
+                    </el-col>
+                </el-row>
         </el-col>
     </el-row>
 
@@ -455,7 +455,7 @@
                 1 : {
                     label: "lv.1"
                 },
-                6 : '试试滑动两端滑块',
+                6 : '滑动两端滑块',
                 10 :{
                     label: "lv.10"
                 }
