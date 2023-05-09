@@ -318,10 +318,11 @@
                     value: '火',
                     label: '火',
                     children: [
-                        {value: '迪卢克', label: '迪卢克'},
-                        {value: '可莉', label: '可莉'},
-                        {value: '胡桃', label: '胡桃'},
+                        {value: '迪希雅', label: '迪希雅'},
                         {value: '宵宫', label: '宵宫'},
+                        {value: '胡桃', label: '胡桃'},
+                        {value: '可莉', label: '可莉'},
+                        {value: '迪卢克', label: '迪卢克'},
                         {value: '香菱', label: '香菱'},
                         {value: '班尼特', label: '班尼特'},
                         {value: '安柏', label: '安柏'},
@@ -381,9 +382,11 @@
                     value: '草',
                     label: '草',
                     children: [
+                        {value: '白术', label: '白术'},
                         {value: '艾尔海森', label: '艾尔海森'},
                         {value: '纳西妲', label: '纳西妲'},
                         {value: '提纳里', label: '提纳里'},
+                        {value: '卡维', label: '卡维'},
                         {value: '瑶瑶', label: '瑶瑶'},
                         {value: '柯莱', label: '柯莱'},
                     ]
@@ -397,6 +400,7 @@
                         {value: '优菈', label: '优菈'},
                         {value: '甘雨', label: '甘雨'},
                         {value: '七七', label: '七七'},
+                        {value: '米卡', label: '米卡'},
                         {value: '莱依拉', label: '莱依拉'},
                         {value: '埃洛伊', label: '埃洛伊'},
                         {value: '罗莎莉亚', label: '罗莎莉亚'},
@@ -691,6 +695,7 @@
                 calculate_quantity,
                 confirm_role,
                 submitRule,
+
                 a_minus,
                 a_plus,
                 e_minus,
