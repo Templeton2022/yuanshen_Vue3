@@ -268,17 +268,19 @@
             </el-card>
         </el-col>
     </el-row>
+
+    <el-backtop :right="40" :bottom="100" />
 </template>
 
 <script>
     import { ref, reactive, toRefs, inject } from 'vue'
     import { Cpu, Minus, Plus } from '@element-plus/icons-vue'
     import {rolematerial, roletotal} from '@/api'
-    import {ElRow, ElCol, ElSlider, ElButton, ElIcon, ElSwitch, ElCard, ElNotification, ElMessage, ElCascader, ElAvatar} from 'element-plus'
+    import {ElRow, ElCol, ElSlider, ElButton, ElIcon, ElSwitch, ElBacktop, ElCard, ElNotification, ElMessage, ElCascader, ElAvatar} from 'element-plus'
 
     export default {
         name: "AppIndexRole",
-        components: { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElSwitch, ElCascader, ElAvatar, Cpu, Minus, Plus},
+        components: { ElRow, ElCol, ElSlider, ElButton, ElIcon, ElCard, ElBacktop, ElSwitch, ElCascader, ElAvatar, Cpu, Minus, Plus},
         setup(){
             const reload = inject('reload')
 
@@ -534,7 +536,7 @@
                     // 消息提示
                     ElNotification({
                         title: '未选角色',
-                        message: '您未选择计算天赋材料的角色！',
+                        message: '您未选择计算升级材料的角色！',
                         type: 'warning',
                         duration: 3000
                     })
@@ -610,20 +612,11 @@
                 20 : {
                     label: "lv.20"
                 },
-                40 : {
-                    label: "lv.40"
-                },
                 50 : {
-                    label: "lv.50"
-                },
-                60 : {
-                    label: "lv.60"
+                    label: "50"
                 },
                 70 : {
-                    label: "lv.70"
-                },
-                80 : {
-                    label: "lv.80"
+                    label: "70"
                 },
                 90 :{
                     label: "lv.90"

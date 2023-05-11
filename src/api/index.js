@@ -28,3 +28,17 @@ export const rolematerial = (rolematerialDTO) => requests({
     method: 'post',
     data: rolematerialDTO
 })
+
+// 查询角色升级材料接口
+export const armsmaterial = (armsmaterialDTO) => requests({
+    url: '/arms/armsmaterial',
+    method: 'post',
+    data: armsmaterialDTO
+})
+
+// 计算角色升级材料合计接口
+export const armstotal = (armsDTO) => requests({
+    url: '/arms/armstotal',
+    method: 'post',
+    data: armsDTO
+})
