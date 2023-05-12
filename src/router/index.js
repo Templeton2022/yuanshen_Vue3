@@ -23,6 +23,10 @@ const routes = [
                 path: '/talent',
                 component:() =>import("@/components/AppIndexTalent")
             },
+            {
+                path: '/cardpool',
+                component:() =>import("@/components/AppIndexCardpool")
+            },
         ]
     }
 ]
